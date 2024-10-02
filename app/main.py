@@ -5,22 +5,22 @@ import math
 
 class Vector:
 
-    def __init__(self, x: float, y: float) -> None:
-        self.x = round(x, 2)
-        self.y = round(y, 2)
+    def __init__(self, x_: float, y_: float) -> None:
+        self.x = round(x_, 2)
+        self.y = round(y_, 2)
 
     def __add__(self, other: Vector) -> Vector:
         if isinstance(other, Vector):
             return Vector(
-                x=self.x + other.x,
-                y=self.y + other.y
+                x_=self.x + other.x,
+                y_=self.y + other.y
             )
 
     def __sub__(self, other: Vector) -> Vector:
         if isinstance(other, Vector):
             return Vector(
-                x=self.x - other.x,
-                y=self.y - other.y
+                x_=self.x - other.x,
+                y_=self.y - other.y
             )
 
     def __mul__(self, other: Vector | float | int) -> float | Vector:
@@ -46,7 +46,7 @@ class Vector:
         length_vector = self.get_length()
         lenx = self.x / length_vector
         leny = self.y / length_vector
-        return Vector(x=lenx, y=leny)
+        return Vector(x_=lenx, y_=leny)
 
     def angle_between(self, other: Vector) -> int:
         top = self.x * other.x + self.y * other.y
@@ -64,4 +64,4 @@ class Vector:
         radians = math.radians(other)
         new_x = self.x * math.cos(radians) - self.y * math.sin(radians)
         new_y = self.x * math.sin(radians) + self.y * math.cos(radians)
-        return Vector(x=new_x, y=new_y)
+        return Vector(x_=new_x, y_=new_y)
